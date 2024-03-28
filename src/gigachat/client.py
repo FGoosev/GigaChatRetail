@@ -35,7 +35,7 @@ T = TypeVar("T")
 
 _logger = logging.getLogger(__name__)
 
-GIGACHAT_MODEL = "GigaChat"
+GIGACHAT_MODEL = "GigaChat-Pro"
 
 
 def _get_kwargs(settings: Settings) -> Dict[str, Any]:

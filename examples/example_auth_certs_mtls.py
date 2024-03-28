@@ -1,13 +1,12 @@
 """Взаимная аутентификация по протоколу TLS (mTLS)"""
 
 from gigachat import GigaChat
+import time
 
-with GigaChat(
-    base_url="https://gigachat.devices.sberbank.ru/api/v1",
-    ca_bundle_file="certs/ca.pem",  # chain_pem.txt
-    cert_file="certs/tls.pem",  # published_pem.txt
-    key_file="certs/tls.key",
-    key_file_password="123456",
-) as giga:
-    response = giga.chat("Какие факторы влияют на стоимость страховки на дом?")
+start = time.time()
+# Используйте токен, полученный в личном кабинете из поля Авторизационные данные
+with GigaChat(temperature=0.1,credentials="NmZhODY1ZjYtOWJiNy00ODcyLTkxNDEtYmUxZTdhMzgzOGY3OjJjNjZlNzg4LTYxYWYtNDdlMC1iODZhLTdkODk4OGQxZWI1Mw==", verify_ssl_certs=False) as giga:
+    response = giga.chat("\"AXE Signature Антип/стик против бел след муж50мл(Юнилевер):6\" преобразуй в полное название. Выдели из результата атрибуты и подпиши их")
     print(response.choices[0].message.content)
+finish = time.time()
+print('Время работы: ' + str(finish - start))
